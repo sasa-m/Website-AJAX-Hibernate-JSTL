@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Aleksandrovac</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body class="first-page">
+        <header>
+            <nav>
+                <div class="first-logo">
+                    <h1 id="first-sign">Aleksandrovac</h1>
+                </div>
+                <div class="menu">
+                    <a href="index.html">Home</a>
+                    <a onclick="getpage('aboutContent.html')" href="javascript:void(0)">About</a>
+                    <a onclick="getpage('galleryContent.html')" href="javascript:void(0)">Gallery</a>
+                    <a onclick="getpage('blog')" href="javascript:void(0)">Blog</a>
+                    <a onclick="getpage('contactContent.html')" href="javascript:void(0)">Contact</a>
+                </div>
+            </nav>
+            <main id="content">
+                <section>
+                    <h3>Come & Visit</h3>
+                    <h1>Welcome to Aleksandrovac</h1>
+                    <p>Once is not enough</p>
+                </section>     
+            </main>
+        </header>
+    </body>
+</html>
+
+<script type="text/javascript">
+    
+    //Implementation of asynchronous AJAX
+    var content = document.getElementById("content");
+    
+    function getpage(page){
+        var xhr = new XMLHttpRequest();
+        xhr.onload = function(){
+            content.innerHTML = xhr.responseText;
+        };
+        
+        xhr.open("GET",page,true);
+        xhr.send(null);
+    }
+    
+</script>
